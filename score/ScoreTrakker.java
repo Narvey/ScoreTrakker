@@ -1,6 +1,7 @@
 package score;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ScoreTrakker {
 	private ArrayList<Student> students;
@@ -14,8 +15,17 @@ public class ScoreTrakker {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Get rid of this
+		ScoreTrakker list=new ScoreTrakker();
+                list.loadFromFile("scores.txt");
+                list.printInOrder();
 
+	}
+	public void printInOrder(){
+		Collections.sort(students);
+		for(Student s : students){
+			String temp = s.toString();
+			System.out.println(s);
+		}
 	}
 
 }
